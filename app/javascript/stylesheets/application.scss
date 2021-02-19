@@ -1,1 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
+
+// header
+header {
+  a {
+    color: white;
+  }
+  #logo {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

@@ -9,8 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 // Bootstrap, jQueryの追加
+require('jquery')
 import 'bootstrap'
-import '../stylesheets/application'
+import '../stylesheets/application.scss'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
