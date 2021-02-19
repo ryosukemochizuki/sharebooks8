@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-sm bg-primary">
-    <span><%= link_to 'ActionBooks', root_path, class: "navbar-brand", id: "logo" %></span>
+    <%= link_to 'ActionBooks', root_path, class: "navbar-brand", id: "header_logo" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,10 +10,10 @@
           <%= link_to 'Home', root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Log in', root_path, class: "nav-link" %>
+          <%= link_to 'Log in', "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign up', root_path, class: "nav-link" %>
+          <%= link_to 'Sign up', "#", class: "nav-link" %>
         </li>
       </ul>
     </div>

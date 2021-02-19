@@ -1,16 +1,48 @@
 @import '~bootstrap/scss/bootstrap';
 
-// header
-header {
+// all
+body {
   a {
     color: white;
   }
-  #logo {
+}
+
+.debug_dump {
+  text-align: center;
+  border: solid black 1px;
+  margin: 16px;
+}
+
+// header
+header {
+  margin-bottom: 16px;
+  #header_logo {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: 1px;
     &:hover {
       color: white;
+      text-decoration: none;
+    }
+  }
+
+  .navbar-toggler {
+    border: solid white 1px;
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+}
+
+// footer
+footer {
+  margin-top: 32px;
+  color: white;
+
+  #footer_logo {
+    letter-spacing: 0.5px;
+    &:hover {
       text-decoration: none;
     }
   }
