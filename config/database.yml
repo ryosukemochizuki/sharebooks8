@@ -15,6 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
+  host: localhost
   socket: /tmp/mysql.sock
 
 development:
@@ -49,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: sharebooks_production
-  username: <%= ENV['SHAREBOOKS_DATABASE_USERNAME'] %>
-  password: <%= ENV['SHAREBOOKS_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %> 
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
