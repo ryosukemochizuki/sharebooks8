@@ -16,6 +16,14 @@ class User < ApplicationRecord
                     format: VALID_EMAIL_FORMAT, 
                     uniqueness: {case_sensitive: false}
 
+  has_secure_password
+  VALID_PASSWORD_FORMAT = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]+\z/
+  validates :password, presence: true, 
+                       length: {minimum: 6}, 
+                       format: VALID_PASSWORD_FORMAT
+
+  private
+
   def downcase_email
     self.email = self.email.downcase
   end

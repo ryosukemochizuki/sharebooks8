@@ -3,8 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(account_id: "@example_123", username: "example user", email: "user@example.com")
-    @duplicated_user = User.new(account_id: "@dup_example_123", username: "example user", email: "dup_user@example.com")
+    @user = User.new(account_id: "@example_123", username: "example user", email: "user@example.com", password: "Password1", password_confirmation: "Password1")
+    @duplicated_user = User.new(account_id: "@dup_example_123", username: "example user", email: "dup_user@example.com", password: "Password1", password_confirmation: "Password1")
   end
 
   test "@user should be valid" do
@@ -87,6 +87,33 @@ class UserTest < ActiveSupport::TestCase
     @duplicated_user.email = @user.email
     @duplicated_user.save
     assert_not @duplicated_user.valid?
+  end
+
+  # has_secure_passwordのvalidationチェック
+  test "password should be present" do
+    @user.password = @user.password_confirmation = "      "
+    assert_not @user.valid?
+  end
+
+  test "password should have minimum length 6word" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
+  test "password should not be registered with invalid password" do
+    invalid_passwords = %w[password PASSWORD 12345678 Password password1 PASSWORD1]
+    invalid_passwords.each do |invalid_password|
+      @user.password = @user.password_confirmation = invalid_password
+      assert_not @user.valid?, "#{invalid_password.inspect} should be invalid"
+    end
+  end
+
+  test "password should be registered with valid password" do
+    valid_passwords = %w[Password1 passWord1 passworD1 1passworD]
+    valid_passwords.each do |valid_password|
+      @user.password = @user.password_confirmation = valid_password
+      assert @user.valid?, "#{valid_password.inspect} should be valid"
+    end
   end
 
 end
