@@ -7,7 +7,7 @@ class SignupTest < ActionDispatch::IntegrationTest
   end
 
   test "render new with invaid information" do
-    get new_user_path
+    get signup_path
     assert_no_difference 'User.count' do
       post users_path, params: {user: {username: "", 
                                        account_id: "", 
@@ -20,7 +20,7 @@ class SignupTest < ActionDispatch::IntegrationTest
   end
 
   test "redirect_to user_path with vaild information" do
-    get new_user_path
+    get signup_path
     assert_difference 'User.count', 1 do
       post users_path, params: {user: {username: @user.username, 
                                        account_id: @user.account_id, 

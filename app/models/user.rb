@@ -20,8 +20,9 @@ class User < ApplicationRecord
   VALID_PASSWORD_FORMAT = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]+\z/
   validates :password, presence: true, 
                        length: {minimum: 6}, 
-                       format: VALID_PASSWORD_FORMAT
-
+                       format: VALID_PASSWORD_FORMAT, 
+                       allow_nil: true
+                       
   private
 
   def downcase_email

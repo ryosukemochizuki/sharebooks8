@@ -1,29 +1,8 @@
-<% provide(:title, "Sign up") %>
+<% provide(:title, "Sign Up") %>
 
-<div class ="row justify-content-center form">
-  <div class="col-md-6">
+<div class ="form jumbtron">
     <h1 class="text-center">Sign Up</h1>
-    <%= form_with model: @user, local: true do |f| %>
-
-    <%= render 'shared/error_messages', object: f.object %>
       
-      <%= f.label :account_id, "Account ID (start with @)" %>
-      <%= f.text_field :account_id, class: "form_control", value: "@" %>
+    <%= render 'users/signup_form' %>
 
-      <%= f.label :username, "USERNAME" %>
-      <%= f.text_field :username, class: "form_control" %>
-
-      <%= f.label :email, "EMAIL ADDRESS" %>
-      <%= f.email_field :email, class: "form_control" %>
-
-      <%= f.label :password, "PASSWORD (at least include a little, big letter and number)" %>
-      <%= f.password_field :password, class: "form_control" %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: "form_control" %>
-
-      <%= f.submit "Create your account", class: "btn btn-primary" %>
-    <% end %>
-
-  </div>
 </div>

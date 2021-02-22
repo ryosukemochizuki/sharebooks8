@@ -1,0 +1,22 @@
+<%= form_with model: @user, local: true do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :account_id, class: "sr-only" %>
+  <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+
+  <%= f.label :username, class: "sr-only" %>
+  <%= f.text_field :username, class: "form_control", placeholder: "username" %>
+
+  <%= f.label :email, class: "sr-only" %>
+  <%= f.email_field :email, class: "form_control", placeholder: "email" %>
+
+  <%= f.label :password, class: "sr-only" %>
+  <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+
+  <%= f.label :password_confirmation, class: "sr-only" %>
+  <%= f.password_field :password_confirmation, class: "form_control", placeholder: "password confirmation" %>
+
+  <%= f.submit "Create your account!", class: "btn btn-primary" %>
+
+<% end %>
