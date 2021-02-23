@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to user_url(current_user)
     else
       # renderによるflashメッセージの制限
-      flash.now[:danger] = "Email or Password is invalid! Try again!"
+      flash.now[:danger] = "Account ID or Password is invalid! Try again!"
       render 'new'
     end
   end
