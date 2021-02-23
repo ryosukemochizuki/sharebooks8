@@ -30,9 +30,7 @@ class SignupTest < ActionDispatch::IntegrationTest
     end
     assert_equal "you signed up successfully!", flash[:success]
     assert_response :redirect
-    follow_redirect!
-    assert_response :success
-    assert_match @user.username, @response.body
+    assert is_logged_in?
 
   end
 end

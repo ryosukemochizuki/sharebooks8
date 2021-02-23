@@ -1,4 +1,4 @@
-<% provide(:title, @user.account_id) %>
+<% provide(:title, current_user.account_id) %>
 
-<%= @user.username %>
-<%= @user.account_id %>
+<%= current_user.username %>
+<%= current_user.account_id %>

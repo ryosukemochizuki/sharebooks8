@@ -1,2 +1,18 @@
 <% provide(:title, "Log In") %>
-login form
+
+<div class ="form jumbtron">
+  <h1 class="text-center">Log In</h1>
+      
+  <%= form_with url: login_path, scope: :session, local: true do |f| %>
+
+    <%= f.label :account_id, class: "sr-only" %>
+    <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+
+    <%= f.submit "Log In!", class: "btn btn-primary" %>
+
+  <% end %>
+
+</div>

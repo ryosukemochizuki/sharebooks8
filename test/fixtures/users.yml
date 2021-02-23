@@ -1,0 +1,5 @@
+satoshi: 
+  account_id: "@satoshi123"
+  username: satoshi
+  email: satoshi@example.com
+  password_digest: <%= User.digest("password") %>

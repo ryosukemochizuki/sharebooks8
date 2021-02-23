@@ -23,6 +23,14 @@ class User < ApplicationRecord
                        format: VALID_PASSWORD_FORMAT, 
                        allow_nil: true
                        
+
+  # 受け取った文字列をハッシュ化
+  def self.digest(string)
+    # ActiveModel on githubより
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
   private
 
   def downcase_email
