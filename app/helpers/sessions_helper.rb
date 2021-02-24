@@ -25,13 +25,13 @@ module SessionsHelper
           log_in(user)
           @current_user = user
         end
+      else
       end
     end
 
   # 一時sessionに入れること・永続sessionを入れること・current_userを作ることをまとめたメソッド
   def log_in(user)
     user_log_in(user)
-    remember(user)
     current_user
   end
 

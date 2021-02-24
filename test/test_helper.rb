@@ -16,8 +16,17 @@ end
 class ActionDispatch::IntegrationTest
   include ApplicationHelper
   
+  # user_logged_in?を再現
   def is_logged_in?
     !session[:user_id].nil?
+  end
+
+  # ログイン過程をまとめておく
+  def log_in_as_test_user(user, password: "password", remember_me: '1')
+    get login_path
+    post login_path, params: {session: {account_id: user.account_id, 
+                                       password: password, 
+                                       remember_me: remember_me}}
   end
 
 end

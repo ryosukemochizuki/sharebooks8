@@ -34,5 +34,15 @@ class LoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "a[href=?]", logout_path, count: 0
   end
+
+  test "login with remember 1 and followed by login with remmeber 0" do
+    log_in_as_test_user(@user)
+    assert_not_empty cookies[:remember_token]
+    # 一度ログアウト
+    delete logout_path
+    log_in_as_test_user(@user, remember_me: '0')
+    assert_empty cookies[:remember_token]
+  end
+
 end
 
