@@ -25,7 +25,7 @@ class User < ApplicationRecord
                        allow_nil: true
                        
 
-  # 受け取った文字列をハッシュ化するクラスメソッド
+  # 受け取った文字列をハッシュ化するクラスメソッド(最初はテストのために生成→再利用)
   def self.digest(string)
     # ActiveModel on githubより
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -43,17 +43,17 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(self.remember_token))
   end
 
-  # データベースにあるdigestとtokenを比較するメソッド
+  # データベースにあるdigestとtokenを比較するインスタンスメソッド
   def authenticate?(attribute, attribute_token)
     attribute_digest = send("#{attribute}_digest")
     return false if attribute_digest.nil?
     BCrypt::Password.new(attribute_digest).is_password?(attribute_token)
   end
 
-    # 永続セッションを破棄する
-    def forget
-      update_attribute(:remember_digest, nil)
-    end  
+  # 永続セッションを破棄するインスタンスメソッド
+  def forget
+    update_attribute(:remember_digest, nil)
+  end  
 
   private
 

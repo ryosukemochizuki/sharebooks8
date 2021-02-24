@@ -11,7 +11,7 @@ class SignupTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       post users_path, params: {user: {username: "", 
                                        account_id: "", 
-                                       email: "user@invalid", 
+                                       email: "", 
                                        password: "foo", 
                                        password_confirmation: "bar"}}
     end
@@ -28,9 +28,10 @@ class SignupTest < ActionDispatch::IntegrationTest
                                        password: "Password1", 
                                        password_confirmation: "Password1"}}
     end
-    assert_equal "you signed up successfully!", flash[:success]
     assert_response :redirect
     assert is_logged_in?
+    follow_redirect!
+    assert_select 'title', full_title("#{@user.account_id}")
 
   end
 end

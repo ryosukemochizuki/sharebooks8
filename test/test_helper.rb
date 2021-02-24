@@ -10,19 +10,25 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include ApplicationHelper
+
+  # 開発環境のuser_logged_in?を再現
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
 
 
 class ActionDispatch::IntegrationTest
   include ApplicationHelper
   
-  # user_logged_in?を再現
+  # 開発環境のuser_logged_in?を再現
   def is_logged_in?
     !session[:user_id].nil?
   end
 
   # ログイン過程をまとめておく
-  def log_in_as_test_user(user, password: "password", remember_me: '1')
+  def log_in_as_test_user(user, password: "Password1", remember_me: '1')
     get login_path
     post login_path, params: {session: {account_id: user.account_id, 
                                        password: password, 

@@ -24,12 +24,9 @@ class SessionsController < ApplicationController
       flash[:success] = "you logged out successfully!"
       redirect_to root_url
     else
-      flash[:success] = "you already logged out!"
+      flash[:danger] = "you already logged out!"
       redirect_to root_url
     end
-    # log_out(current_user) if user_logged_in?
-    # flash[:success] = "you logged out successfully!"
-    # redirect_to root_url
   end
   
 end
