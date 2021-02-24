@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
   before_save :downcase_email
 
   VALID_ACCOUNT_ID_FORMAT = /\A@[\w\-.]+\z/
@@ -24,12 +25,35 @@ class User < ApplicationRecord
                        allow_nil: true
                        
 
-  # 受け取った文字列をハッシュ化
+  # 受け取った文字列をハッシュ化するクラスメソッド
   def self.digest(string)
     # ActiveModel on githubより
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  # 新しいトークンを作成するクラスメソッド
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # remember_digestに生成したトークンをハッシュ化させた値を代入するインスタンスメソッド
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(self.remember_token))
+  end
+
+  # データベースにあるdigestとtokenを比較するメソッド
+  def authenticate?(attribute, attribute_token)
+    attribute_digest = send("#{attribute}_digest")
+    return false if attribute_digest.nil?
+    BCrypt::Password.new(attribute_digest).is_password?(attribute_token)
+  end
+
+    # 永続セッションを破棄する
+    def forget
+      update_attribute(:remember_digest, nil)
+    end  
 
   private
 

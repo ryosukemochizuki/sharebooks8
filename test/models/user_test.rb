@@ -116,4 +116,9 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  # authenticate?実行時digestがnilだった時にfalseを返すか
+  test "should return false when login with remember_digest nil" do
+    assert_not @user.authenticate?("remember", "")
+  end
+
 end

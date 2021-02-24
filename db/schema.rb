@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_234710) do
+ActiveRecord::Schema.define(version: 2021_02_24_000625) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "account_id"
-    t.string "username"
-    t.string "email"
+    t.string "account_id", limit: 255
+    t.string "username", limit: 255
+    t.string "email", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
+    t.string "password_digest", limit: 255
+    t.string "remember_digest"
     t.index ["account_id"], name: "index_users_on_account_id", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end

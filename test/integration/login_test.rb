@@ -15,7 +15,7 @@ class LoginTest < ActionDispatch::IntegrationTest
     assert_match "Log In", @response.body
   end
 
-  test "redirect to users/show with vaild information" do
+  test "redirect to users/show with vaild information and followed by logout" do
     get login_path
     assert_response :success
     post login_path, params: {session: {account_id: @user.account_id, 
@@ -23,6 +23,16 @@ class LoginTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_match @user.username, @response.body
+    # ログアウトのテスト
+    delete logout_path
+    assert_response :redirect
+    follow_redirect!
+    assert_select "a[href=?]", logout_path, count: 0
+    # 2回目のログアウト（バグ修正）
+    delete logout_path
+    assert_response :redirect
+    follow_redirect!
+    assert_select "a[href=?]", logout_path, count: 0
   end
-
 end
+
