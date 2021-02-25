@@ -1,6 +1,11 @@
 satoshi: 
-  id: '1'
   account_id: "@satoshi123"
   username: satoshi
   email: satoshi@example.com
+  password_digest: <%= User.digest("Password1") %>
+
+mochi: 
+  account_id: "@mochi123"
+  username: mochi
+  email: mochi@example.com
   password_digest: <%= User.digest("Password1") %>

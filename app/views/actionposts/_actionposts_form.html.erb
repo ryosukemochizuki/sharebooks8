@@ -1,0 +1,23 @@
+<div class ="form">
+  <h1 class="text-center"><%= yield(:form_title) %></h1>
+    
+  <%= form_with model: @actionpost, local: true do |f| %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="one_form">
+      <%= f.label :title, "Book Title" %>
+      <%= f.text_field :title, class: "form_control", placeholder: "book title" %>
+    </div>
+
+    <%= f.label :highlight, "Impressive Sentences" %>
+    <%= f.text_area :highlight, class: "form_control", rows: "10", placeholder: "ex) Art is an explosion. ...etc" %>
+
+    <%= f.label :action, "Action Plan" %>
+    <%= f.text_area :action, class: "form_control", rows: "10", placeholder: "What you should do with using the contents of the book." %>
+
+    <%= f.submit yield(:btn), class: "btn btn-primary" %>
+
+  <% end %>
+
+</div>

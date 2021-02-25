@@ -1,19 +1,25 @@
 <% provide(:title, "Log In") %>
 
-<div class ="form jumbtron">
+<div class ="form">
   <h1 class="text-center">Log In</h1>
       
   <%= form_with url: login_path, scope: :session, local: true do |f| %>
 
-    <%= f.label :account_id, class: "sr-only" %>
-    <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+    <div class="one_form">
+      <%= f.label :account_id, class: "sr-only" %>
+      <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+    </div>
 
-    <%= f.label :password, class: "sr-only" %>
-    <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+    <div class="one_form">
+      <%= f.label :password, class: "sr-only" %>
+      <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+    </div>
 
-    <div class="checkbox">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, "Remember me on this computer" %>
+    <div class="one_form">
+      <div class="checkbox">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "Remember me on this computer" %>
+      </div>
     </div>
 
     <%= f.submit "Log In!", class: "btn btn-primary" %>

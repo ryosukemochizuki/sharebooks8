@@ -1,0 +1,9 @@
+<% provide(:title, @actionpost.title) %>
+
+
+<%= @actionpost.title %>
+<%= @actionpost.highlight %>
+<%= @actionpost.action %>
+
+<%= link_to 'edit', edit_actionpost_path(@actionpost) %>
+<%= link_to 'delete', actionpost_path(@actionpost), method: :delete, data: {confirm: "Are you sure?"}%>

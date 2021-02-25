@@ -1,22 +1,37 @@
-<%= form_with model: @user, local: true do |f| %>
+<div class ="form">
+  <h1 class="text-center"><%= yield(:form_title) %></h1>
+  
+  <%= form_with model: @user, local: true do |f| %>
 
-  <%= render 'shared/error_messages', object: f.object %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :account_id, class: "sr-only" %>
-  <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+    <div class="one_form">
+      <%= f.label :account_id, class: "sr-only" %>
+      <%= f.text_field :account_id, class: "form_control", placeholder: "account ID (Start with @)" %>
+    </div>
 
-  <%= f.label :username, class: "sr-only" %>
-  <%= f.text_field :username, class: "form_control", placeholder: "username" %>
+    <div class="one_form">
+      <%= f.label :username, class: "sr-only" %>
+      <%= f.text_field :username, class: "form_control", placeholder: "username" %>
+    </div>
+    
+    <div class="one_form">
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, class: "form_control", placeholder: "email" %>
+    </div>
 
-  <%= f.label :email, class: "sr-only" %>
-  <%= f.email_field :email, class: "form_control", placeholder: "email" %>
+    <div class="one_form">
+      <%= f.label :password, class: "sr-only" %>
+      <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+    </div>
 
-  <%= f.label :password, class: "sr-only" %>
-  <%= f.password_field :password, class: "form_control", placeholder: "password (include a small, big letter and number)" %>
+    <div class="one_form">
+      <%= f.label :password_confirmation, class: "sr-only" %>
+      <%= f.password_field :password_confirmation, class: "form_control", placeholder: "password confirmation" %>
+    </div>
 
-  <%= f.label :password_confirmation, class: "sr-only" %>
-  <%= f.password_field :password_confirmation, class: "form_control", placeholder: "password confirmation" %>
+    <%= f.submit yield(:btn), class: "btn btn-primary" %>
 
-  <%= f.submit "Create your account!", class: "btn btn-primary" %>
+  <% end %>
 
-<% end %>
+</div>

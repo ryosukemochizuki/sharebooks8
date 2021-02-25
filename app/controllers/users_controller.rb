@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user?, except: [:new, :create]
+  before_action :correct_user?, except: [:new, :create]
   
   def show
     @user = User.find(params[:id])
@@ -38,5 +40,14 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:account_id, :username, :email, :password, :password_confirmation)    
+  end
+
+  # 正しいユーザーしかアクセスできない(今のユーザーがcurrent_userか)
+  def correct_user?
+    user = User.find(params[:id])
+    if !(user == current_user)
+      flash[:danger] = "this access is invalid."
+      redirect_to root_url
+    end
   end
 end
