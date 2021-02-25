@@ -16,6 +16,8 @@
           <div class="dropdown-menu" aria-labelledby="HeaderdropdownMenuButton">
             <%= link_to 'My page', user_path(current_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
+            <%= link_to 'Edit profile', edit_user_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to 'Log out', logout_path, method: :delete, class: "dropdown-item" %>
           </div>
         </div>      

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SignupTest < ActionDispatch::IntegrationTest
+class UserSignupTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = User.new(account_id: "@example_123", username: "example user", email: "user@example.com", password: "Password1", password_confirmation: "Password1")

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LoginTest < ActionDispatch::IntegrationTest
+class UserLoginTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:satoshi)
