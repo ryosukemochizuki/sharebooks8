@@ -7,8 +7,10 @@
 
 <% else %>
 
-  <%= link_to 'Log in', login_path, class: "nav-link" %>
-  or
-  <%= link_to 'Sign up', signup_path, class: "nav-link" %>
+  <div class="non_signin">
+    <%= link_to 'Log in', login_path, class: "nav-link" %>
+    or
+    <%= link_to 'Sign up', signup_path, class: "nav-link" %>
+  </div>
 
 <% end %>

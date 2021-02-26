@@ -1,8 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+html, body {
+  color: white;
+}
+
 .main {
+  height: 80%;
   margin-top: 50px;
   margin-bottom: 80px;
+
+  a {
+    color: white;
+  
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  
 }
 
 /* typography tutorialより */
@@ -24,7 +40,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
 }
 
 p {
