@@ -1,3 +1,8 @@
-<%= link_to actionpost.title, actionpost_path(actionpost) %>
-<%= actionpost.highlight %>
-<%= actionpost.action %>
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="card bg-info mb-3">
+    <div class="card-header"><%= link_to actionpost.title, actionpost_path(actionpost) %></div>
+    <div class="card-body">
+      <p class="card-text"><%= actionpost.action %></p>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,16 @@
 <% else %>
 
   <div class="non_signin">
-    <%= link_to 'Log in', login_path, class: "nav-link" %>
-    or
-    <%= link_to 'Sign up', signup_path, class: "nav-link" %>
+    <div class="heading">
+      <h1 class="text-center">Don't just reading books,</h1>
+      <h2 class="text-center">Write your action with using books.</h2>
+    </div>
+
+    <div class="btns">
+      <%= link_to 'Sign up', signup_path, class: "btn btn-primary" %>
+      <p class="text-center">or</p>
+      <%= link_to 'Log in', login_path, class: "btn btn-primary" %>
+    </div>
   </div>
 
 <% end %>

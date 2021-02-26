@@ -174,3 +174,25 @@ footer {
   }
 
 }
+
+// home
+.non_signin {
+  padding: 50px;
+  h1 {
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    letter-spacing: 1px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  .btn {
+    display: block;
+    width: 100px;
+    margin: auto;
+  }
+}
