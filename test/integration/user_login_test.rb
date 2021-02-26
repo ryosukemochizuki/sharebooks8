@@ -11,7 +11,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: {session: {account_id: "", 
                                         password: "foo"}}
     assert_response :success
-    assert_match "Log In", @response.body
+    assert_select 'title', full_title("Log in")
   end
 
   test "redirect to user_path with vaild information and followed by logout (2)" do

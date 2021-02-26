@@ -13,7 +13,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
                                      username: "", 
                                      email: ""}}
     assert_response :success
-    assert_select 'title', full_title("Edit")
+    assert_select 'title', full_title("Edit profile")
   end
 
   test "redirect to show with valid information" do
@@ -24,7 +24,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
                                      email: @user.email}}
     assert_response :redirect
     follow_redirect!
-    assert_select 'title', full_title("#{@user.account_id}")
+    assert_select 'title', full_title(@user.account_id)
 
   end
 

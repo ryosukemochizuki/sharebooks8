@@ -16,7 +16,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
                                        password_confirmation: "bar"}}
     end
     assert_response :success
-    assert_select "input[type=?]", "submit"
+    assert_select 'title', full_title("Sign up")
   end
 
   test "redirect_to user_path with vaild information" do
@@ -31,7 +31,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert is_logged_in?
     follow_redirect!
-    assert_select 'title', full_title("#{@user.account_id}")
+    assert_select 'title', full_title(@user.account_id)
 
   end
 end

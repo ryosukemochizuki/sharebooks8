@@ -14,7 +14,7 @@ class ActionpostEditTest < ActionDispatch::IntegrationTest
                                                  highlight: "", 
                                                  action: ""}}
     assert_response :success
-    assert_match "Edit my Action", @response.body
+    assert_select 'title', full_title("Edit my action")
   end
 
   test "redirect to actionpost/show when updating with valid information" do
@@ -25,7 +25,7 @@ class ActionpostEditTest < ActionDispatch::IntegrationTest
                                                  action: @actionpost.action}}
     assert_response :redirect
     follow_redirect!
-    assert_match @actionpost.title, @response.body
+    assert_select 'title', full_title(@actionpost.title)
   end
 
 end

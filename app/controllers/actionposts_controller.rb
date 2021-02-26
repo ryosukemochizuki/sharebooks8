@@ -1,6 +1,6 @@
 class ActionpostsController < ApplicationController
   before_action :logged_in_user?
-  before_action :correct_user?
+  before_action :correct_user?, only: [:destroy]
 
   def index
     @actionposts = current_user.actionposts
@@ -14,7 +14,7 @@ class ActionpostsController < ApplicationController
     @actionpost = current_user.actionposts.build(actionpost_params)
     if @actionpost.save
       flash[:success] = "your new action is successfully added!"
-      redirect_to actionpost_path(@actionpost)
+      redirect_to actionposts_path
     else
       render 'static_pages/home'
     end
@@ -37,7 +37,7 @@ class ActionpostsController < ApplicationController
   def destroy
     @actionpost.destroy
     flash[:success] = "The action was deleted."
-    redirect_to root_url
+    redirect_to actionposts_url
   end
 
   private
@@ -50,7 +50,7 @@ class ActionpostsController < ApplicationController
   def correct_user?
     @actionpost = current_user.actionposts.find_by(id: params[:id])
     if @actionpost.nil?
-      flash[:danger] = "your access is not permitted, try again!"
+      flash[:danger] = "your access is not permitted."
       redirect_to root_url
     end
   end

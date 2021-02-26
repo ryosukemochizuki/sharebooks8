@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user?, except: [:new, :create]
-  before_action :correct_user?, except: [:new, :create]
+  before_action :correct_user?, except: [:new, :create, :destroy]
+  # アドミンだけユーザーを削除できるように後で実装 before_action :admin_user?, only: [:destroy]
   
   def show
     @user = User.find(params[:id])
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   # 正しいユーザーしかアクセスできない(今のユーザーがcurrent_userか)
   def correct_user?
     user = User.find(params[:id])
-    if !(user == current_user)
+    if !(user && user == current_user)
       flash[:danger] = "this access is invalid."
       redirect_to root_url
     end
