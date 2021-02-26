@@ -5,6 +5,29 @@
 
   <%= render 'actionposts/actionposts_form' %>
 
+  <div class="home-content">
+    <div class="row">
+      <div class="col-12">
+          <h1 class="text-center">recent posts</h1>
+        <% unless @recentposts.nil? %>
+          <% @recentposts.each do |actionpost| %>
+            <% unless actionpost.id.nil? %>
+              <%= link_to actionpost_path(actionpost) do %>
+                <div class="card bg-info mb-5">
+                  <div class="card-header"><%= actionpost.title %></div>
+                  <div class="card-body">
+                    <p class="card-text"><%= actionpost.action %></p>
+                    <p class="card-text"><%= actionpost.created_at %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 <% else %>
 
   <div class="non_signin">

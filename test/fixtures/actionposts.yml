@@ -3,3 +3,15 @@ one:
   highlight: highone
   action: actionone
   user: satoshi
+
+two: 
+  title: two
+  highlight: hightwo
+  action: actiontwo
+  user: satoshi
+
+three: 
+  title: three
+  highlight: highthree
+  action: actionthree
+  user: satoshi

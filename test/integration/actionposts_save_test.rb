@@ -15,7 +15,6 @@ class ActionpostsSaveTest < ActionDispatch::IntegrationTest
                                                 highlight: "", 
                                                 action: ""}}
     assert_response :success
-    assert_select 'title', full_title("")
   end
 
   test "redirect to actionposts/show when saving with valid information and followed by destroy" do

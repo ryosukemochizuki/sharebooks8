@@ -1,4 +1,22 @@
 <% provide(:title, current_user.account_id) %>
-
-<%= current_user.username %>
-<%= current_user.account_id %>
+<div class="user-info">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+     <h1 class="text-center">user infomation</h1>
+      <div class="user-info-group bg-info">
+        <p class="user-list"><span>Account ID : </span><%= current_user.account_id %></p>
+        <p class="user-list"><span>Username   : </span><%= current_user.username %></p>
+        <p class="user-list"><span>email      : </span><%= current_user.email %></p>
+        <p class="user-list"><span>Password   : </span>secret</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+      <h1 class="text-center">Book shelf (<%= @actionposts.count %>)</h1>
+        <div class="user-info-group bg-info">
+          <% @actionposts.each do |actionpost| %>
+            <p class="user-list"><span>TITLE : </span><%= link_to actionpost.title, actionpost_path(actionpost) %></p>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

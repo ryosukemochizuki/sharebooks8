@@ -1,8 +1,21 @@
 <% provide(:title, @actionpost.title) %>
-
-<%= @actionpost.title %>
-<%= @actionpost.highlight %>
-<%= @actionpost.action %>
-
-<%= link_to 'edit', edit_actionpost_path(@actionpost) %>
-<%= link_to 'delete', actionpost_path(@actionpost), method: :delete, data: {confirm: "Are you sure?"}%>
+<div class="show_card">
+  <div class="card bg-info mb-5">
+    <div class="card-header">
+      <div class="card-upper">
+        <div class="card_title">
+          <span>TITLE : </span><%= @actionpost.title %>
+        </div> 
+        <div class="edit_delete">
+          <%= link_to 'edit', edit_actionpost_path(@actionpost), class: "btn btn-primary edit_btn" %>
+          <%= link_to 'delete', actionpost_path(@actionpost), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><span>HIGHLIGHT : </span><br><%= @actionpost.highlight %></p>
+      <p class="card-text"><span>ACTION PLAN : </span><br><%= @actionpost.action %></p>    
+      <p class="card-text"><span>LAST UPDATED AT : </span><%= @actionpost.updated_at %></p>
+    </div>
+  </div>
+</div>
