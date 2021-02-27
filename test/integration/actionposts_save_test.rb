@@ -4,7 +4,6 @@ class ActionpostsSaveTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:satoshi)
-    # @actionpost = actionposts(:one)
     @actionpost = @user.actionposts.create(title: "actionpost", highlight: "actionpost", action: "actionpost")
   end
 

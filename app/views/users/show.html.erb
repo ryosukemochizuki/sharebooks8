@@ -13,8 +13,14 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
       <h1 class="text-center">Book shelf (<%= @actionposts.count %>)</h1>
         <div class="user-info-group bg-info">
-          <% @actionposts.each do |actionpost| %>
-            <p class="user-list"><span>TITLE : </span><%= link_to actionpost.title, actionpost_path(actionpost) %></p>
+          <% unless @actionposts.nil? %>
+            <% @actionposts.each do |actionpost| %>
+              <% unless actionpost.id.nil? %>
+                <p class="user-list"><span>TITLE : </span><%= link_to actionpost.title, actionpost_path(actionpost) %></p>
+              <% end %>
+            <% end %>
+          <% else %>
+            <p class="text-center">: NO CONTENT</p>
           <% end %>
         </div>
     </div>

@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user?, except: [:new, :create]
-  before_action :correct_user?, except: [:new, :create, :destroy]
-  # アドミンだけユーザーを削除できるように後で実装 before_action :admin_user?, only: [:destroy]
+  before_action :correct_user?, except: [:new, :create]
+  # アドミンだけユーザーを削除できるように後で実装 
+  # before_action :admin_user?, only: [:destroy]
   
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @actionposts = current_user.actionposts
   end
   
@@ -25,11 +26,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "your profile updated successfully!"
       redirect_to user_url(@user)
@@ -46,9 +47,9 @@ class UsersController < ApplicationController
 
   # 正しいユーザーしかアクセスできない(今のユーザーがcurrent_userか)
   def correct_user?
-    user = User.find(params[:id])
-    if !(user && user == current_user)
-      flash[:danger] = "this access is invalid."
+    @user = User.find(params[:id])
+    if !(@user && @user == current_user)
+      flash[:danger] = "your access is invalid."
       redirect_to root_url
     end
   end
