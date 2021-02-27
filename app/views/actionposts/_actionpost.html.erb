@@ -4,7 +4,7 @@
       <div class="card-header"><%= actionpost.title %></div>
       <div class="card-body">
         <p class="card-text"><%= actionpost.action %></p>
-        <p class="card-text"><%= actionpost.created_at %></p>
+        <p class="card-text"><%= actionpost.updated_at.to_s(:datetime_jp) %></p>
       </div>
     </div>
   <% end %>

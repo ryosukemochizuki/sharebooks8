@@ -15,7 +15,7 @@
     <div class="card-body">
       <p class="card-text"><span>HIGHLIGHT : </span><br><%= @actionpost.highlight %></p>
       <p class="card-text"><span>ACTION PLAN : </span><br><%= @actionpost.action %></p>    
-      <p class="card-text"><span>LAST UPDATED AT : </span><%= @actionpost.updated_at %></p>
+      <p class="card-text"><span>LAST UPDATED AT : </span><%= @actionpost.updated_at.to_s(:datetime_jp) %></p>
     </div>
   </div>
 </div>

@@ -17,7 +17,7 @@
                   <div class="card-header"><%= recentpost.title %></div>
                   <div class="card-body">
                     <p class="card-text"><%= recentpost.action %></p>
-                    <p class="card-text"><%= recentpost.created_at %></p>
+                    <p class="card-text"><%= recentpost.created_at.to_s(:datetime_jp) %></p>
                   </div>
                 </div>
               <% end %>
