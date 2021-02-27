@@ -7,6 +7,10 @@ class ActionpostTest < ActiveSupport::TestCase
     @actionpost = @user.actionposts.build(title: "actionpost", highlight: "actionpost", action: "actionpost")
   end
 
+  test "most-recent should be the most recent post" do
+    assert_equal actionposts(:most_recent), Actionpost.first
+  end
+
   # テスト用ポストが通るかチェック
   test "should be valid" do
     assert @actionpost.valid?

@@ -27,7 +27,7 @@ class ActionpostsController < ApplicationController
   def update
     # @actionpost = current_user.actionposts.find_by(id: params[:id])
     if @actionpost.update(actionpost_params)
-      flash[:success] = "your new action is successfully added!"
+      flash[:success] = "your new action is successfully updated!"
       redirect_to actionpost_path(@actionpost)
     else
       render 'edit'

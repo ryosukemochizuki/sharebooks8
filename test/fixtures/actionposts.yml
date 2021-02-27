@@ -1,17 +1,27 @@
-one: 
-  title: one
-  highlight: highone
-  action: actionone
+cat: 
+  title: "cat"
+  highlight: "cat"
+  action: "cat"
+  updated_at: <%= 10.minutes.ago %>
   user: satoshi
 
-two: 
-  title: two
-  highlight: hightwo
-  action: actiontwo
+dog:
+  title: "dog"
+  highlight: "dog"
+  action: "dog"
+  updated_at: <%= 3.years.ago %>
   user: satoshi
 
-three: 
-  title: three
-  highlight: highthree
-  action: actionthree
+pig:
+  title: "pig"
+  highlight: "pig"
+  action: "pig"
+  updated_at: <%= 2.hours.ago %>
+  user: satoshi
+
+most_recent:
+  title: "most_recent"
+  highlight: "most_recent"
+  action: "most_recent"
+  created_at: <%= Time.zone.now %>
   user: satoshi
