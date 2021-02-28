@@ -14,11 +14,11 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title("Log in")
   end
 
-  test "redirect to user_path with vaild information and followed by logout (2)" do
+  test "redirect to root_url with vaild information and followed by logout (2)" do
     log_in_as_test_user(@user)
     assert_response :redirect
     follow_redirect!
-    assert_match @user.username, @response.body
+    assert_select 'title', full_title("")
     # ログアウトのテスト
     delete logout_path
     assert_response :redirect

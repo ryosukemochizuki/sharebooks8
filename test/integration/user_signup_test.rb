@@ -19,7 +19,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title("Sign up")
   end
 
-  test "redirect_to user_path with vaild information" do
+  test "redirect_to root_path with vaild information" do
     get signup_path
     assert_difference 'User.count', 1 do
       post users_path, params: {user: {username: @user.username, 
@@ -31,7 +31,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert is_logged_in?
     follow_redirect!
-    assert_select 'title', full_title(@user.account_id)
+    assert_select 'title', full_title("")
 
   end
 end

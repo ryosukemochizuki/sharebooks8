@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in(user)
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       flash[:success] = "you logged in successfully!"
-      redirect_to user_url(current_user)
+      redirect_to root_url
     else
       # renderによるflashメッセージの制限
       flash.now[:danger] = "Account ID or Password is invalid! Try again!"
