@@ -1,8 +1,9 @@
-User.create!(account_id: "@taro_123", 
-            username: "taro", 
-            email: "taro@example.com", 
+User.create!(account_id: "@mochizuki", 
+            username: "mochizuki", 
+            email: "mochizuki@example.com", 
             password: "Password1", 
             password_confirmation: "Password1")
+            
 
 user = User.first
 50.times do
