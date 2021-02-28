@@ -199,11 +199,11 @@ footer {
 
 .home-content {
   padding: 30px 0;
-  .recent-words-group {
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 10px 7px 5px black;
-  }
+  // .recent-words-group {
+  //   padding: 10px;
+  //   border-radius: 10px;
+  //   box-shadow: 10px 7px 5px black;
+  // }
 
   .card {
     box-shadow: 10px 7px 5px black ;
@@ -280,3 +280,22 @@ footer {
   border-bottom: solid 1px black;
 }
 
+// pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .page-link {
+    color: black;
+    margin: 0 5px;
+    border-radius: 5px;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.book-pagination {
+  margin-top: 30px;
+}

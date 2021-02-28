@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   def show
     # @user = User.find(params[:id])
-    @actionposts = current_user.actionposts
+    @actionposts = current_user.actionposts.page(params[:page])
   end
   
   def new

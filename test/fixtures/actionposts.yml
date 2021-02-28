@@ -23,5 +23,14 @@ most_recent:
   title: "most_recent"
   highlight: "most_recent"
   action: "most_recent"
-  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
   user: satoshi
+
+<% 10.times do |n| %>
+actionpost_<%= n %>: 
+  title: <%= n %>
+  highlight: <%= n %>
+  action: <%= n %>
+  updated_at: <%= 1.hours.ago %>
+  user: satoshi
+<% end %>

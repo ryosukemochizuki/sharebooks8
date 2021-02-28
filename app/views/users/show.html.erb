@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-      <h1 class="text-center">Book shelf (<%= @actionposts.count %>)</h1>
+      <h1 class="text-center">Book shelf (<%= @actionposts.total_count %>)</h1>
         <div class="user-info-group bg-info">
           <% unless @actionposts.nil? %>
             <% @actionposts.each do |actionpost| %>
@@ -22,6 +22,9 @@
           <% else %>
             <p class="text-center">: NO CONTENT</p>
           <% end %>
+        </div>
+        <div class="book-pagination">
+          <%= paginate @actionposts %>
         </div>
     </div>
   </div>

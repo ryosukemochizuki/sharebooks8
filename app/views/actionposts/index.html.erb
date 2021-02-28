@@ -1,9 +1,11 @@
 <%= provide(:title, "All actions")%>
 
-<h1 class="text-center">All actions (<%= @actionposts.count %>)</h1>
+<h1 class="text-center">All actions (<%= @actionposts.total_count %>)</h1>
 
 <div class="cards">
   <div class="row">
       <%= render @actionposts %>
   </div>
+
+    <%= paginate @actionposts %>
 </div>

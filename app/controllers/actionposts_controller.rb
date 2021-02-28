@@ -3,7 +3,7 @@ class ActionpostsController < ApplicationController
   before_action :correct_user?, only: [:show, :update, :edit, :destroy]
 
   def index
-    @actionposts = current_user.actionposts
+    @actionposts = current_user.actionposts.page(params[:page])
   end
 
   def show
