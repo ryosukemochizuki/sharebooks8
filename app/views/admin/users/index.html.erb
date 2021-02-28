@@ -1,0 +1,29 @@
+<% provide(:title, "admin_users") %>
+
+<div class="all-users">
+  <h1 class="text-center">All users</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Account ID</th>
+        <th>username</th>
+        <th>email</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account_id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if !(user == current_user) %>
+            <%= link_to "delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
