@@ -11,4 +11,12 @@ class Actionpost < ApplicationRecord
 
   validates :user_id, presence: true
   
+
+  def self.search(keyword)
+    if keyword
+      Actionpost.where('title LIKE ?', "%#{keyword}%")
+    else
+      Actionpost.all
+    end
+  end
 end

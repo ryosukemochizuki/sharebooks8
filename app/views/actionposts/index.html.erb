@@ -1,6 +1,12 @@
 <%= provide(:title, "All actions")%>
 
 <h1 class="text-center">All actions (<%= @actionposts.total_count %>)</h1>
+<div class="form-inline">
+  <%= form_tag(actionposts_path, :method => "get") do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
+</div>
 
 <div class="cards">
   <div class="row">

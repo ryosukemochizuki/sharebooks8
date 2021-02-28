@@ -3,7 +3,7 @@ class ActionpostsController < ApplicationController
   before_action :correct_user?, only: [:show, :update, :edit, :destroy]
 
   def index
-    @actionposts = current_user.actionposts.page(params[:page])
+    @actionposts = current_user.actionposts.search(params[:search]).page(params[:page])
   end
 
   def show
@@ -39,6 +39,10 @@ class ActionpostsController < ApplicationController
     @actionpost.destroy
     flash[:success] = "The action was deleted."
     redirect_to actionposts_url
+  end
+
+  def search
+    
   end
 
   private
