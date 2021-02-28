@@ -12,9 +12,6 @@ class Admin::UsersController < ApplicationController
       @user.destroy
       flash[:success] = "Account deleted"
       redirect_to admin_users_url
-    else
-      flash[:danger] = "account doesn't exist."
-      redirect_to admin_users_url
     end
   end
 
