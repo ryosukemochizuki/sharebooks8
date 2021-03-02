@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+「開発環境」
+場所: ローカル
+ruby version: 2.7.2
+rails version: 6.0.3
+database: mysql2
 
-Things you may want to cover:
+「本番環境」
+deploy: heroku
+detabase: mysql2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+「実装機能」
+・ユーザー サインイン・サインアップ・ログイン(remember_me)
+・メモ 一覧・投稿・編集・削除
+・一覧画面からの検索機能
+・admin機能
