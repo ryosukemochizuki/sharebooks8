@@ -1,6 +1,6 @@
 # README
 
-「開発環境」
+「開発環境」/n
 場所: ローカル
 ruby version: 2.7.2
 rails version: 6.0.3
